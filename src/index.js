@@ -7,6 +7,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { getData } from './utils/data_helpers';
 import Form from './components/input/index.js';
+import App from './components/app.js';
 
 class Card extends React.Component {
     state = {
@@ -14,10 +15,15 @@ class Card extends React.Component {
     };
 
     componentDidMount() {
-        // getData('http://history.muffinlabs.com/date/01/01').then(data => console.log(data));
-        getData('http://history.muffinlabs.com/date/01/01').then(data => this.setState({ data }));
-    }
+        getData('http://history.muffinlabs.com/date/01/01')
+        .then(data => console.log(data));
+        // getData('https://api.github.com/users/misterrodger?access_token=72f21f76c68988867e1df798d69bc1ff2cf9dee5')
+        // .then(data => this.setState({ data }));
+        // .then(data => {
+        //   return console.log(data);
+        }
 
+// 72f21f76c68988867e1df798d69bc1ff2cf9dee5
     render() {
         const {
             data,
@@ -25,10 +31,10 @@ class Card extends React.Component {
         } = this.state.data;
 
         if( data ){
-            console.log("satra",data['Births']);
-            var y = data['Births'].length;
+            // console.log("satra",data['Births']);
+            // var y = data['Births'].length;
             // var x = this.state.data.data['Briths'].text;
-            console.log(data['Births'][y-1].text);
+            // console.log(data['Births'][y-1].text);
         }
 
         return (
@@ -37,5 +43,7 @@ class Card extends React.Component {
         );
     }
 }
+
+export default Card;
 
 ReactDOM.render(<Card />, document.getElementById('root'));

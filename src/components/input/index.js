@@ -25,4 +25,5 @@ class Form extends React.Component {
   }
 }
 
-ReactDOM.render(<Form />, root);
+export default Form;
+// ReactDOM.render(<Form />, root);
